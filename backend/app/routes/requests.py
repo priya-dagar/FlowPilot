@@ -84,6 +84,20 @@ def get_request(request_id: int, db: Session = Depends(get_db)):
         "audit_trail": [{"step": a.step, "detail": a.detail} for a in audit],
     }
 
+@router.get("/employees")
+def list_employees(db: Session = Depends(get_db)):
+    employees = db.query(models.Employee).all()
+
+    return [
+        {
+            "id": employee.id,
+            "name": employee.name,
+            "email": employee.email,
+            "leave_balance": employee.leave_balance,
+        }
+        for employee in employees
+    ]
+
 @router.get("/dashboard")
 def dashboard_summary(db: Session = Depends(get_db)):
     all_requests = db.query(models.LeaveRequest).order_by(models.LeaveRequest.created_at.desc()).all()
@@ -101,6 +115,8 @@ def dashboard_summary(db: Session = Depends(get_db)):
             "days_requested": r.days_requested,
             "status": r.status,
         })
+
+
 
     return {
         "total": total,

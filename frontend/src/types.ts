@@ -56,3 +56,10 @@ export interface DashboardSummary {
   completed: number;
   recent: RecentRequest[];
 }
+
+export interface Employee {
+  id: number;
+  name: string;
+  email: string;
+  leave_balance: number;
+}

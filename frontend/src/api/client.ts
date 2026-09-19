@@ -4,6 +4,7 @@ import type {
   ApprovalDecisionResponse,
   PendingApproval,
   DashboardSummary,
+  Employee,
 } from "../types";
 
 const BASE_URL = "http://localhost:8000";
@@ -55,5 +56,10 @@ export async function listPendingApprovals(): Promise<PendingApproval[]> {
 
 export async function getDashboardSummary(): Promise<DashboardSummary> {
   const res = await fetch(`${BASE_URL}/dashboard`);
+  return handleResponse(res);
+}
+
+export async function listEmployees(): Promise<Employee[]> {
+  const res = await fetch(`${BASE_URL}/employees`);
   return handleResponse(res);
 }
