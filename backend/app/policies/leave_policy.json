@@ -1,0 +1,25 @@
+{
+  "policy_name": "Standard Leave Policy",
+  "rules": [
+    {
+      "id": "R1",
+      "text": "Employees are entitled to 18 paid leave days per year."
+    },
+    {
+      "id": "R2",
+      "text": "Leave requests of 1-2 days do not require manager approval and are auto-approved if sufficient balance exists."
+    },
+    {
+      "id": "R3",
+      "text": "Leave requests of 3 or more consecutive days require manager approval, regardless of balance."
+    },
+    {
+      "id": "R4",
+      "text": "Leave cannot be approved if it exceeds the employee's remaining balance."
+    },
+    {
+      "id": "R5",
+      "text": "Leave requests must specify a clear start date and number of days; ambiguous requests should be flagged for clarification."
+    }
+  ]
+}

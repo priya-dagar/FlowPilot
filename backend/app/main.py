@@ -1,4 +1,16 @@
 from fastapi import FastAPI
+from .database import engine, Base
+from . import models
+from .routes import requests as requests_router
+from .routes import approvals as approvals_router
+from fastapi.middleware.cors import CORSMiddleware
+
+
+
+
+
+Base.metadata.create_all(bind=engine)
+
 
 app = FastAPI(
     title="FlowPilot",
@@ -20,3 +32,14 @@ def health_check():
     return {
         "status": "healthy"
     }
+
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+app.include_router(requests_router.router)
+app.include_router(approvals_router.router)
