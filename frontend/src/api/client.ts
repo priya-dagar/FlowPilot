@@ -7,8 +7,7 @@ import type {
   Employee,
 } from "../types";
 
-const BASE_URL = "http://localhost:8000";
-
+const BASE_URL = "https://flowpilot-7cvp.onrender.com";
 
 async function handleResponse<T>(res: Response): Promise<T> {
   if (!res.ok) {
