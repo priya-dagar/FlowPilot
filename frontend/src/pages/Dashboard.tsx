@@ -53,7 +53,7 @@ export default function Dashboard() {
                   <div className="text-sm font-medium">{r.employee_name}</div>
                   <div className="text-xs text-neutral-500">
                     #{r.id} · {r.days_requested ?? "?"} day
-                    {r.days_requested === 1 ? "" : "s"} · "{r.request}"
+                    {r.days_requested === 1 ? "" : "s"} · "{r.raw_text}"
                   </div>
                 </div>
                 <StatusBadge status={r.status} />

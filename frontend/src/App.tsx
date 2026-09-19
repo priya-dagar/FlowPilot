@@ -5,9 +5,7 @@ import Approvals from "./pages/Approvals";
 import Dashboard from "./pages/Dashboard";
 import History from "./pages/History";
 
-function Placeholder({ name }: { name: string }) {
-  return <div className="p-8 text-neutral-400">{name} page — coming next</div>;
-}
+
 
 export default function App() {
   return (
